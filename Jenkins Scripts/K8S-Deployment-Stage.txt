@@ -1,7 +1,7 @@
 ## Deploy Node-Service in Kubernetes Default Namespace
 
-kubectl -n default create deploy node-app --image rayudusubrahmanyam12/node-service:v1 
-kubectl -n default expose deploy node-app --name node-service --port 5000
+kubectl -n default create deploy node-app --image=rayudusubrahmanyam12/numeric-app:ccce43a346a78cc8cd8b427c00d7d87c29d8ba47 
+kubectl -n default expose deploy node-app --name numeric-app --port 5000 --type=NodePort
 
 
 
