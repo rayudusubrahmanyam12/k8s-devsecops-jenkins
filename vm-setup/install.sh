@@ -38,6 +38,8 @@ systemctl restart docker
 systemctl enable docker
 systemctl enable kubelet
 systemctl start kubelet
+sudo chmod 777 /var/run/docker.sock
+sudo usermod -aG docker ubuntu
 
 echo ".........----------------#################._.-.-KUBERNETES-.-._.#################----------------........."
 rm /root/.kube/config
@@ -80,5 +82,5 @@ sudo systemctl start jenkins
 #sudo systemctl status jenkins
 sudo usermod -a -G docker jenkins
 echo "jenkins ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
-
+sudo usermod -aG docker jenkins
 echo ".........----------------#################._.-.-COMPLETED-.-._.#################----------------........."
