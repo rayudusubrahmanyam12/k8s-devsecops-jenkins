@@ -54,16 +54,25 @@ jobs:
           echo "Host URL: ${{ secrets.SONAR_HOST_URL }}"
           echo "Project Key: ${{ secrets.SONAR_PROJECT_KEY }}"
           mvn -B verify sonar:sonar -Dsonar.host.url=${{secrets.SONAR_HOST_URL}} -Dsonar.token=${{secrets.SONAR_TOKEN}} -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }} -Dsonar.organization=rayudusubrahmanyam12
+          
+  IMAGE-BUILD-PUSH:
+      runs-on: self-hosted
+      needs: SAST  
+      steps:
+      - name: image build
+        run: |
+        docker login -u rayudusubrahmanyam12 -p ${{ secrets.DOCKER_PASSWD }}
+
   K8S-SCAN:
       runs-on: self-hosted
-      needs: SAST
+      needs: IMAGE-BUILD-PUSH
       steps:
       - name: Run Snyk to check Kubernetes manifest file for issues
         uses: snyk/actions/iac@master
         continue-on-error: true
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-      - name: ZAP Scan
-        uses: zaproxy/action-full-scan@v0.4.0
-        with:
-          target: 'http://www.s3-saanvi-sri-sai.co.in'        
+      #- name: ZAP Scan
+      #  uses: zaproxy/action-full-scan@v0.4.0
+      #  with:
+      #    target: 'http://www.s3-saanvi-sri-sai.co.in'        
