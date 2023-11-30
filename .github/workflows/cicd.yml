@@ -11,5 +11,5 @@ jobs:
       uses: actions/checkout@v3
     - name: build
       run: |
-        sh "mvn clean package -DskipTests=true"
+        mvn clean package -DskipTests=true
         archive 'target/*.jar
