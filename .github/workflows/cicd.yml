@@ -27,6 +27,7 @@ jobs:
         path: exportJacoco/jacoco-fast.exec
   SAST:
     runs-on: self-hosted
+    needs: build
     steps:
       - name: Cache SonarQube packages
         uses: actions/cache@v1
