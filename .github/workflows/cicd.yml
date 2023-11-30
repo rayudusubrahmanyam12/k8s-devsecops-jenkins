@@ -75,6 +75,8 @@ jobs:
       - name: image build
         run: |
           docker login -u rayudusubrahmanyam12 -p ${{ secrets.DOCKER_PASSWD }}
+          docker build -t rayudusubrahmanyam12/numeric-app:""$GIT_COMMIT"" .
+          docker push rayudusubrahmanyam12/numeric-app:""$GIT_COMMIT""
 
   K8S-SCAN:
       runs-on: self-hosted
