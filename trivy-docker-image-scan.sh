@@ -5,7 +5,7 @@
 dockerImageName=$(awk 'NR==1 {print $2}' Dockerfile)
 echo $dockerImageName
 
-EXPORT WORKSPACE=/home/ubuntu
+export WORKSPACE=/home/ubuntu
 
 echo $WORKSPACE
 
