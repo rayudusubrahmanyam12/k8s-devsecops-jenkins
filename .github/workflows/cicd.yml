@@ -62,6 +62,7 @@ jobs:
 
   Vulnerability-Scan-Docker:
      runs-on: self-hosted
+     needs: SAST
      steps:
       - name: trivy scan
         run: |
