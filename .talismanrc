@@ -1,0 +1,4 @@
+fileignoreconfig:
+- filename: .github/workflows/cicd.yml
+  checksum: d04f808336fa40c94e43aa6687d06017ee83f53e0c0d84938d7c7e556431cdcf
+version: ""
