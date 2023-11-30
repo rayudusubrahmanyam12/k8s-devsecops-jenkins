@@ -1,0 +1,12 @@
+name: cicd flow
+on: 
+ push:
+   branches:
+     - "master"
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: build
+      run: |
+        echo "testing"
