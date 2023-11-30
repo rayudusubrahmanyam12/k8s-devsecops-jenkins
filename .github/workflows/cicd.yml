@@ -87,6 +87,7 @@ jobs:
         continue-on-error: true
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+          
       #- name: ZAP Scan
       #  uses: zaproxy/action-full-scan@v0.4.0
       #  with:
