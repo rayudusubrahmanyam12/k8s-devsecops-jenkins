@@ -54,14 +54,14 @@ jobs:
           echo "Host URL: ${{ secrets.SONAR_HOST_URL }}"
           echo "Project Key: ${{ secrets.SONAR_PROJECT_KEY }}"
           mvn -B verify sonar:sonar -Dsonar.host.url=${{secrets.SONAR_HOST_URL}} -Dsonar.token=${{secrets.SONAR_TOKEN}} -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }} -Dsonar.organization=rayudusubrahmanyam12
-          
+
   IMAGE-BUILD-PUSH:
       runs-on: self-hosted
       needs: SAST  
       steps:
       - name: image build
         run: |
-        docker login -u rayudusubrahmanyam12 -p ${{ secrets.DOCKER_PASSWD }}
+          docker login -u rayudusubrahmanyam12 -p ${{ secrets.DOCKER_PASSWD }}
 
   K8S-SCAN:
       runs-on: self-hosted
