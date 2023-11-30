@@ -53,4 +53,4 @@ jobs:
           echo "Secret Value: ${{ secrets.SONAR_TOKEN }}"
           echo "Host URL: ${{ secrets.SONAR_HOST_URL }}"
           echo "Project Key: ${{ secrets.SONAR_PROJECT_KEY }}"
-          mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.host.url=${{secrets.SONAR_HOST_URL}} -Dsonar.token=${{secrets.SONAR_TOKEN}} -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}
+          mvn -B verify sonar:sonar -Dsonar.host.url=${{secrets.SONAR_HOST_URL}} -Dsonar.token=${{secrets.SONAR_TOKEN}} -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}
