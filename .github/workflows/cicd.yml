@@ -12,7 +12,6 @@ jobs:
     - name: build
       run: |
         mvn clean package -DskipTests=true
-        archive 'target/*.jar'
     - name: test
       run: |
         mvn test
